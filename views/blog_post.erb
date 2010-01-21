@@ -1,0 +1,15 @@
+<h2><a href="/blog/<%= @post.url%>"><%= @post.title %></a></h2>
+<%= @post.intro %>
+<%= @post.content %>
+<p>no of comments: <%= @post.comments.count %><p>
+<% @post.comments.each do |comment| %>
+  <h3><%= comment.posted_by %></h3>
+  <%= comment.body %>
+<% end %>
+<form action="/comment/<%= @post.id %>" method="post">
+  <fieldset>
+    <input type="text" name="posted_by" />
+    <textarea name="body"></textarea>
+    <input type="submit" />
+  </fieldset>
+</form>

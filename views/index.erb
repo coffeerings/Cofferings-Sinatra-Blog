@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+  <h2><a href="/blog/<%= post.url%>"><%= post.id %>. <%= post.title %></a></h2>
+  <%= post.intro %>
+  <%= post.content %>
+  <p>no of comments: <%= post.comments.count %><p>
+<% end %>

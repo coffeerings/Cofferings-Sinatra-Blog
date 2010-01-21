@@ -1,0 +1,7 @@
+<form method="post" action="/admin">
+  <input type="text" name="title" id="title" value="<%= @post.title %>" />
+	<input type="text" name="url" id="url" value="<%= @post.url %>" />
+  <textarea name="intro" id="intro" rows="3"><%= @post.intro %></textarea>
+  <textarea name="content" id="content" rows="3"><%= @post.content %></textarea>
+  <input type="submit" />
+</form>
