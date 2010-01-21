@@ -27,15 +27,6 @@ class Comment
   belongs_to :post
 end
 
-class Contact
-  include DataMapper::Resource
-  
-  property :id, Serial
-  property  :email, String
-  property  :name, String
-  property  :content, Text
-end
-
 helpers do
   def protected!
     unless authorized?
