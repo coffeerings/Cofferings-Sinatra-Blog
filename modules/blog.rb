@@ -21,13 +21,6 @@ get '/blog/:url' do
   erb :blog_post
 end
 
-get '/search' do
-  @posts = Post.all(:conditions => ['url = ?', 'test'])
-  @posts.each do |post|
-    puts post.title
-  end
-end
-
 post '/comment/:id' do
   post = Post.get(params[:id])
   post.comments.new(:posted_by => params[:posted_by],:body => params[:body]).save
