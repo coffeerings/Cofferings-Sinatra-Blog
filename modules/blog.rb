@@ -1,12 +1,9 @@
-get '/' do
-  @posts = Post.all(:limit=>3, :order=>[:created_at.desc])
-  erb :index
-end
-
-get '/blog' do
-  @posts = Post.all(:limit=>options.items_per_page, :order=>[:created_at.desc])
-  @page_no = 0
-  erb :blog
+["/","/blog/?"].each do |path|
+  get path do
+    @posts = Post.all(:limit=>options.items_per_page, :order=>[:created_at.desc])
+    @page_no = 0
+    erb :blog
+  end
 end
 
 get '/blog/page/:page_no' do
@@ -16,7 +13,6 @@ get '/blog/page/:page_no' do
 end
 
 get '/blog/:url' do
-  posts = Post.all
   @post = Post.first(:url => params[:url])
   erb :blog_post
 end
